@@ -11,7 +11,7 @@ int expenseCount = 0;
 
 void addExpenses();
 void viewExpensesList();
-void setBudgetLimit();
+float setBudgetLimit();
 
 int main() {
 	int option;
@@ -88,6 +88,21 @@ void viewExpensesList() {
 }
 
 
-void setBudgetLimit() {
+float setBudgetLimit() {
+	float budget;
+	
+	do {
+        cout << "Enter your monthly budget (RM): ";
+        cin >> budget;
 
+        if (budget <= 0) {
+            cout << "Invalid budget! Please enter a positive amount." << endl;
+        }
+
+    } while (budget <= 0);
+
+    cout << fixed << setprecision(2);
+    cout << "Budget successfully set to RM " << budget << endl;
+
+    return budget;
 }
